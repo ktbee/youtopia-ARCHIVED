@@ -1,5 +1,5 @@
 module.exports = function(app) {
-  var youtopia = require('../controllers/controller');
+  var youtopia = require('./controller');
 
   // Routes
   app.route('/')

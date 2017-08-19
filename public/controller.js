@@ -1,4 +1,4 @@
-var config = require('./../../config.js');
+var config = require('./../config.js');
 var http = require('http');
 var https = require('https');
 var ytUrl = 'https://www.googleapis.com/youtube/v3/search?part=snippet&order=rating&type=video&videoDefinition=high&videoEmbeddable=true&key=' + config.youtubeAPIKey;
