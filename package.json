@@ -1,0 +1,27 @@
+{
+  "name": "youtopia",
+  "version": "1.0.0",
+  "description": "Lets create a u/dis/topia of vids to display on TV screens ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/Upstatement/youtopia.git"
+  },
+  "author": "Katie Broida",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Upstatement/youtopia/issues"
+  },
+  "homepage": "https://github.com/Upstatement/youtopia#readme",
+  "devDependencies": {
+    "nodemon": "^1.11.0"
+  },
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "express": "^4.15.4",
+    "express-handlebars": "^3.0.0"
+  }
+}
