@@ -1,14 +1,16 @@
 var config = require('./../config.js');
 var http = require('http');
 var https = require('https');
-var ytRootUrl = 'https://www.googleapis.com/youtube/v3/search?part=snippet&order=rating&type=video&videoDefinition=high&videoEmbeddable=true&key=' + config.youtubeAPIKey;
+var ytRootUrl = 'https://www.googleapis.com/youtube/v3/search?';
 
 exports.index = function(req, res) {
   var vidRequest;
   var body = '';
   var vidIds = [];
+  var searchParams = 'part=id&type=video&maxResults=4&q=aol'
+  var ytAPIUrl = ytRootUrl + searchParams + '&key=' + config.youtubeAPIKey;
 
-  https.get(ytRootUrl, (response) => {
+  https.get(ytAPIUrl, (response) => {
     var body = '';
     var vidIds = [];
 
