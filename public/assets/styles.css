@@ -1,0 +1,14 @@
+body {
+  background: black;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  align-items: stretch;
+}
+
+.vid {
+  height: 50vh;
+  margin: auto;
+  flex: 1 50%;
+}
+
