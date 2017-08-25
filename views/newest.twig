@@ -6,8 +6,14 @@
 
 {% block script %}
 $(document).ready(function(){
+  var $vidEmbed = $('iframe');
+  var vidEmbedSrc = $vidEmbed.attr('src');
+  var embedConfig = '?autoplay=1&controls=0&showinfo=1';
+
   $.get( "/get/newest", function( data ) {
-    console.log( data );
+    var vidId = data.vidIds[0];
+    $vidEmbed.attr('src', vidEmbedSrc + vidId + embedConfig);
+    console.log( vidId );
   });
 });
 {% endblock %}
