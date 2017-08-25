@@ -4,4 +4,7 @@ module.exports = function(app) {
   // Routes
   app.route('/')
     .get(youtopia.index);
+
+  app.route('/newest')
+    .get(youtopia.newest);
 }

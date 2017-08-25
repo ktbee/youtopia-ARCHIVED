@@ -7,8 +7,16 @@ body {
 }
 
 .vid {
-  height: 50vh;
   margin: auto;
+}
+
+.index {
+  height: 50vh;
   flex: 1 50%;
+}
+
+.single {
+  height: 100vh;
+  flex: 1 100%;
 }
 

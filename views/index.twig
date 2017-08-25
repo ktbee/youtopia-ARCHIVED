@@ -1,3 +1,7 @@
+
+{% block vid %}
 {{#each vidIds}}
+  {{log this}}
   <iframe class="vid" src="https://www.youtube.com/embed/{{this}}?autoplay=1&controls=0&showinfo=1" frameborder="0" allowfullscreen></iframe>
 {{/each}}
+{% endblock %}
