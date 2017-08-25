@@ -7,4 +7,7 @@ module.exports = function(app) {
 
   app.route('/newest')
     .get(youtopia.newest);
+
+  app.route('/get/newest')
+    .get(youtopia.getNewest);
 }

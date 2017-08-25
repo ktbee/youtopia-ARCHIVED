@@ -22,30 +22,34 @@ exports.newest = function(req, res) {
 exports.getNewest = function(req, res) {
   searchParams = 'part=id&maxResults=1&order=date&type=video';
   ytAPIUrl = ytRootUrl + searchParams + '&key=' + config.youtubeAPIKey;
-  res.send(queryYoutube(ytAPIUrl, res));
+  queryYoutube(ytAPIUrl).then(function(vidIds) {
+    res.send({vidIds: vidIds});
+  });
 }
 
-function queryYoutube(ytAPIUrl, res) {
-  https.get(ytAPIUrl, (response) => {
-    var body = '';
-    var vidIds = [];
+function queryYoutube(ytAPIUrl) {
+  return new Promise((resolve, reject) => {
+    https.get(ytAPIUrl, (response) => {
+      var body = '';
+      var vidIds = [];
 
-    response.on('error', function(err) {
-      console.log(err);
-    });
-
-    response.on('data', function (data) {
-      body += data;
-    });
-    response.on('end', function(){
-      var parsedResults = JSON.parse(body);
-      vidResults = parsedResults.items;
-
-      vidResults.forEach( function( element ){
-        vidIds.push(element.id.videoId);
+      response.on('error', function(err) {
+        reject(err);
       });
 
-      return vidIds;
+      response.on('data', function (data) {
+        body += data;
+      });
+      response.on('end', function(){
+        var parsedResults = JSON.parse(body);
+        vidResults = parsedResults.items;
+
+        vidResults.forEach( function( element ){
+          vidIds.push(element.id.videoId);
+        });
+
+        resolve(vidIds);
+      });
     });
   });
 }

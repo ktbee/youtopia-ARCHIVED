@@ -5,5 +5,9 @@
 {% endblock %}
 
 {% block script %}
-console.log('howdy!');
+$(document).ready(function(){
+  $.get( "/get/newest", function( data ) {
+    console.log( data );
+  });
+});
 {% endblock %}
