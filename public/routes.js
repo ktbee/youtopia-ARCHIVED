@@ -4,4 +4,13 @@ module.exports = function(app) {
   // Routes
   app.route('/')
     .get(youtopia.index);
+
+  app.route('/get/index')
+    .get(youtopia.getIndex);
+
+  app.route('/newest')
+    .get(youtopia.newest);
+
+  app.route('/get/newest')
+    .get(youtopia.getNewest);
 }
