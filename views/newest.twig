@@ -7,13 +7,13 @@
 {% block script %}
 $(document).ready(function(){
   var $vidEmbed = $('iframe');
-  var vidEmbedSrc = $vidEmbed.attr('src');
+  var vidEmbedSrc = "https://www.youtube.com/embed/";
   var embedConfig = '?autoplay=1&controls=0&showinfo=1';
 
+  // Get newest vid ID and add it to the embed code
   $.get( "/get/newest", function( data ) {
     var vidId = data.vidIds[0];
     $vidEmbed.attr('src', vidEmbedSrc + vidId + embedConfig);
-    console.log( vidId );
   });
 });
 {% endblock %}
