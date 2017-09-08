@@ -1,6 +1,7 @@
 var config = require('./../config.js');
 var http = require('http');
 var https = require('https');
+var randomWords = require('random-words');
 var ytRootUrl = 'https://www.googleapis.com/youtube/v3/search?';
 var body, ytAPIUrl, searchParams;
 var vidIds = [];
@@ -10,10 +11,14 @@ exports.index = function( req, res ) {
 }
 
 exports.getIndex = function( req, res ) {
-  searchParams = 'part=id&type=video&maxResults=4&q=aol';
+  searchTerm = randomWords(1);
+  searchParams = 'part=id&type=video&maxResults=4&q=' + searchTerm;
   ytAPIUrl = ytRootUrl + searchParams + '&key=' + config.youtubeAPIKey;
   vidIds = queryYoutube( ytAPIUrl ).then(( vidIds ) => {
-    res.send({ vidIds : vidIds });
+    res.send({
+      vidIds : vidIds,
+      searchTerm : searchTerm
+    });
   });
 }
 
