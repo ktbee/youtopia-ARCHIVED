@@ -8,9 +8,9 @@ module.exports = function(app) {
   app.route('/get/index')
     .get(youtopia.getIndex);
 
-  app.route('/newest')
-    .get(youtopia.newest);
+  app.route('/live')
+    .get(youtopia.live);
 
-  app.route('/get/newest')
-    .get(youtopia.getNewest);
+  app.route('/get/live')
+    .get(youtopia.getLive);
 }
