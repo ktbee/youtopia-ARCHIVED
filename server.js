@@ -1,6 +1,6 @@
 var express = require('express');
 var app = express();
-var port = process.env.PORT || 3000;
+var port = process.env.PORT || 8080;
 var bodyParser = require('body-parser');
 var fs = require('fs');
 var routes = require('./public/routes.js');
