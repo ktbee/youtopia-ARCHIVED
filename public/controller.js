@@ -22,11 +22,11 @@ exports.getIndex = function( req, res ) {
   });
 }
 
-exports.newest = function( req, res ) {
-  res.render('newest');
+exports.live = function( req, res ) {
+  res.render('live');
 }
 
-exports.getNewest = function( req, res ) {
+exports.getLive = function( req, res ) {
   searchParams = 'part=id&maxResults=1&order=date&type=video';
   ytAPIUrl = ytRootUrl + searchParams + '&key=' + config.youtubeAPIKey;
   queryYoutube(ytAPIUrl).then(function(vidIds) {
