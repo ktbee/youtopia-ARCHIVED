@@ -1,10 +1,3 @@
-{% extends "layouts/base.twig" %}
-
-{% block vid %}
-<iframe class="vid single" src="https://www.youtube.com/embed/" frameborder="0" allowfullscreen></iframe>
-{% endblock %}
-
-{% block script %}
 $(document).ready(function(){
   var $vidEmbed = $('iframe');
   var vidEmbedSrc = "https://www.youtube.com/embed/";
@@ -16,4 +9,3 @@ $(document).ready(function(){
     $vidEmbed.attr('src', vidEmbedSrc + vidId + embedConfig);
   });
 });
-{% endblock %}

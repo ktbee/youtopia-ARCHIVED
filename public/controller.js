@@ -7,7 +7,7 @@ var body, ytAPIUrl, searchParams;
 var vidIds = [];
 
 exports.index = function( req, res ) {
-  res.render('index');
+  res.render('four', { script: 'index' });
 }
 
 exports.getIndex = function( req, res ) {
@@ -23,7 +23,7 @@ exports.getIndex = function( req, res ) {
 }
 
 exports.live = function( req, res ) {
-  res.render('live');
+  res.render('one', { script: 'live' });
 }
 
 exports.getLive = function( req, res ) {
