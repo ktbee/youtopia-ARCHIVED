@@ -1,13 +1,3 @@
-{% extends "layouts/base.twig" %}
-
-
-{% block vid %}
-  {% for i in 1..4 %}
-    <iframe class="vid index" src="https://www.youtube.com/embed/" frameborder="0" allowfullscreen></iframe>
-  {% endfor %}
-{% endblock %}
-
-{% block script %}
 $(document).ready(function(){
   var $vidEmbeds = $('iframe');
   var embedConfig = '?autoplay=1&controls=0&showinfo=1';
@@ -26,4 +16,3 @@ $(document).ready(function(){
 
   });
 });
-{% endblock %}

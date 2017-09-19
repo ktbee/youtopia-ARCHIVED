@@ -8,6 +8,12 @@ module.exports = function(app) {
   app.route('/get/index')
     .get(youtopia.getIndex);
 
+  app.route('/best')
+    .get(youtopia.best);
+
+  app.route('/get/best')
+    .get(youtopia.getBest);
+
   app.route('/live')
     .get(youtopia.live);
 
