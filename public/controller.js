@@ -51,6 +51,22 @@ exports.getLive = function( req, res ) {
   });
 }
 
+exports.search = function( req, res ) {
+  res.render('four', { script: 'search' });
+}
+
+exports.getSearch = function( req, res ) {
+  searchTerm = req.params.searchTerm;
+  searchParams = 'part=id&type=video&maxResults=4&q=' + searchTerm;
+  ytAPIUrl = ytRootUrl + searchParams + '&key=' + config.youtubeAPIKey;
+  vidIds = queryYoutube( ytAPIUrl ).then(( vidIds ) => {
+    res.send({
+      vidIds : vidIds,
+      searchTerm : searchTerm
+    });
+  });
+}
+
 function queryYoutube( ytAPIUrl ) {
   return new Promise(( resolve, reject ) => {
     https.get(ytAPIUrl, ( response ) => {
