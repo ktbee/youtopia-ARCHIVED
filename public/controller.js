@@ -40,7 +40,7 @@ exports.getBest = function( req, res ) {
 }
 
 exports.live = function( req, res ) {
-  res.render('one', { script: 'live', req: req });
+  res.render('one', { script: 'live' });
 }
 
 exports.getLive = function( req, res ) {
