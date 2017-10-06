@@ -40,7 +40,7 @@ exports.getBest = function( req, res ) {
 }
 
 exports.live = function( req, res ) {
-  res.render('one', { script: 'live' });
+  res.render('one', { script: 'live', req: req });
 }
 
 exports.getLive = function( req, res ) {
@@ -48,6 +48,22 @@ exports.getLive = function( req, res ) {
   ytAPIUrl = ytRootUrl + searchParams + '&key=' + config.youtubeAPIKey;
   queryYoutube(ytAPIUrl).then(function(vidIds) {
     res.send({vidIds: vidIds});
+  });
+}
+
+exports.search = function( req, res ) {
+  res.render('four', { script: 'search' });
+}
+
+exports.getSearch = function( req, res ) {
+  searchTerm = req.params.searchTerm;
+  searchParams = 'part=id&type=video&maxResults=4&q=' + searchTerm;
+  ytAPIUrl = ytRootUrl + searchParams + '&key=' + config.youtubeAPIKey;
+  vidIds = queryYoutube( ytAPIUrl ).then(( vidIds ) => {
+    res.send({
+      vidIds : vidIds,
+      searchTerm : searchTerm
+    });
   });
 }
 

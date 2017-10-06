@@ -19,4 +19,10 @@ module.exports = function(app) {
 
   app.route('/get/live')
     .get(youtopia.getLive);
+
+  app.route('/:searchTerm')
+    .get(youtopia.search);
+
+  app.route('/get/search/:searchTerm')
+    .get(youtopia.getSearch);
 }
